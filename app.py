@@ -20,7 +20,7 @@ def login():
 
     if user and user['password'] == password:
         access_token = create_access_token(identity=username)
-        return jsonify(access_token=access_token), 200
+        return jsonify(access_token=access_token, validity=300), 200
     else:
         return jsonify({"msg": "Bad username or password"}), 401
 
